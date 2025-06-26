@@ -12,7 +12,7 @@
 - Follow/Unfollow other users
 - View followers and following lists
 
-### 📝 Vlogging (Posts)
+### 📝 Blog (Posts)
 - Create and publish text-based posts
 - Like / Unlike posts
 - Share posts (repost with optional comment)
