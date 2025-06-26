@@ -1,6 +1,6 @@
-# 📝 Voiceless Vlogs
+# 📝 Blogs
 
-**Voiceless Vlogs** is a MERN stack-based social vlogging web application where users share thoughts purely through text — no images or videos. It’s a platform for writers, thinkers, and anyone who prefers the power of words over visuals.
+**Blog is a MERN stack-based social vlogging web application where users share thoughts purely through text — no images or videos. It’s a platform for writers, thinkers, and anyone who prefers the power of words over visuals.
 
 ---
 
