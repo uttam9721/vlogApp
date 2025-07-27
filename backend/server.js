@@ -1,25 +1,26 @@
-// server.js
-
 import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import cors from 'cors';
+
+import userRoutes from './Routes/userRoutes.js';
+import postRoutes from './Routes/postRoutes.js'; // ✅ Correctly imported
+
+dotenv.config();
 
 const app = express();
-const PORT = 3000;
-
+app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello from Express with import!');
-});
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => console.log('✅ MongoDB connected'))
+  .catch(err => console.log('❌ MongoDB connection error:', err));
 
-app.get('/about', (req, res) => {
-  res.send('About page using ES Modules.');
-});
+// ✅ Register routes only once
+app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
 
-app.post('/data', (req, res) => {
-  const data = req.body;
-  res.json({ message: 'Data received', data });
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server is running at http://localhost:${PORT}`);
-});
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
