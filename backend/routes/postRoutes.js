@@ -1,3 +1,21 @@
+// import express from 'express';
+// import {
+//   createPost,
+//   getPosts,
+//   getPostById,
+//   updatePost,
+//   deletePost
+// } from './controllers/postController.js';
+// import { protect } from './middleware/authMiddleware.js';
+
+// const router = express.Router();
+
+// router.route('/').get(getPosts).post(protect, createPost);
+// router.route('/:id').get(getPostById).put(protect, updatePost).delete(protect, deletePost);
+
+// export default router;
+
+
 import express from 'express';
 import {
   createPost,
@@ -5,12 +23,19 @@ import {
   getPostById,
   updatePost,
   deletePost
-} from './controllers/postController.js';
-import { protect } from './middleware/authMiddleware.js';
+} from '../controllers/postController.js';
+
+import { protect } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.route('/').get(getPosts).post(protect, createPost);
-router.route('/:id').get(getPostById).put(protect, updatePost).delete(protect, deletePost);
+router.route('/')
+  .get(getPosts)
+  .post(protect, createPost);
+
+router.route('/:id')
+  .get(getPostById)
+  .put(protect, updatePost)
+  .delete(protect, deletePost);
 
 export default router;
