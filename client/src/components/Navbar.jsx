@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -19,12 +17,12 @@ const Navbar = () => {
         {token ? (
           <>
             <Link to="/create">Create Post</Link>
-            <button onClick={logout}>Logout</button>
+            <button className='cursor-pointer' onClick={logout}>Logout</button>
           </>
         ) : (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link className='cursor-pointer' to="/login">Login</Link>
+            <Link className='cursor-pointer' to="/register">Register</Link>
           </>
         )}
       </div>
